@@ -20,28 +20,29 @@ export default function Home() {
   const handlePassword = ({ target : { value }}) => setData({ ...data, password: value });
 
   const requestLogin = () => {
-    const validation = {
-      emailStyle: !!data.email,
-      passwordStyle: !!data.password,
-      invalid: (data.email !== email) && (data.password !== password),
-      erro: !data.email || !data.password,
-    };
-    setData({...data, ...validation});
+    console.log(email, password);
+    // const validation = {
+    //   emailStyle: !!data.email,
+    //   passwordStyle: !!data.password,
+    //   invalid: (data.email !== email) && (data.password !== password),
+    //   erro: !data.email || !data.password,
+    // };
+    // setData({...data, ...validation});
     // Se nenhum campo estiver preenchido os campos ficam vermelhos, e aparece a mensagem de erro
-    // if (!data.email && !data.password) {
-    //   return setData({...data, emailStyle: true, passwordStyle: true, invalid: false, erro: true});
-    // }
-    // if (!data.email && data.password) { 
-    //   return setData({...data, emailStyle: true, passwordStyle: false, invalid: false, erro: true});
-    // }
-    // if (!data.password && data.email) {
-    //   return setData({...data, passwordStyle: true, emailStyle: false, invalid: false, erro: true});
-    // }
-    // if (data.email === email && data.password === password) {
-    //   setData({...data, emailStyle: false, passwordStyle: false, invalid: false, erro: false});
-    //   return alert("Bem vindo de volta!");
-    // }
-    // setData({...data, emailStyle: false, passwordStyle: false, invalid: true, erro: false});
+    if (!data.email && !data.password) {
+      return setData({...data, emailStyle: true, passwordStyle: true, invalid: false, erro: true});
+    }
+    if (!data.email && data.password) { 
+      return setData({...data, emailStyle: true, passwordStyle: false, invalid: false, erro: true});
+    }
+    if (!data.password && data.email) {
+      return setData({...data, passwordStyle: true, emailStyle: false, invalid: false, erro: true});
+    }
+    if (data.email === email && data.password === password) {
+      setData({...data, emailStyle: false, passwordStyle: false, invalid: false, erro: false});
+      return alert("Bem vindo de volta!");
+    }
+    setData({...data, emailStyle: false, passwordStyle: false, invalid: true, erro: false});
   }
 
   return (

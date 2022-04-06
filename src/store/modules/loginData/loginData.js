@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  email: 'bescoito08@gmail.com',
+  email: 'exemplo@gmail.com',
   password: 'senha123'
 }
 
